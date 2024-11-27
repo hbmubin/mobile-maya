@@ -744,6 +744,22 @@ video {
   bottom: -40%;
 }
 
+.-bottom-\[0\%\]{
+  bottom: -0%;
+}
+
+.-top-\[0\%\]{
+  top: -0%;
+}
+
+.top-\[10\%\]{
+  top: 10%;
+}
+
+.top-\[20\%\]{
+  top: 20%;
+}
+
 .-z-30{
   z-index: -30;
 }
@@ -802,6 +818,10 @@ video {
 
 .z-\[90\]{
   z-index: 90;
+}
+
+.z-\[99\]{
+  z-index: 99;
 }
 
 .col-span-1{
@@ -3575,6 +3595,16 @@ header, #singleProductTab {
   .sm\:py-10{
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .sm\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .sm\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .sm\:pb-0{
