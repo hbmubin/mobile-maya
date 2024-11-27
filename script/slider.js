@@ -1,5 +1,4 @@
 new Swiper(".swiper", {
-  //   loop: true,
   slidesPerView: 2.5,
   spaceBetween: 10,
   slidesPerGroup: 2,

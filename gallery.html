@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tailwind css -->
+  <link rel="stylesheet" href="./output.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./css/style.css">
+    <title>Gallery</title>
+</head>
+<body>
+    <!-- Overlay Two -->
+    <div id="overlayTwo" class="bg-black top-0 left-0  bg-opacity-40 fixed w-screen hidden h-screen z-[999]"></div>
+
+    <header class="bg-white pt-5 sticky -top-12">
+        <div class="default-container">
+            <div class="relative flex items-center gap-2">
+                <svg onclick="history.back()" class="absolute cursor-pointer top-1/2 -translate-y-1/2 -left-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path>
+                </svg>
+                <h2 class="text-neutral-600 font-bold text-xl">Apple iPhone 15 Pro Max</h2>
+                <svg class="size-5 openShareBtn cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"></path>
+                </svg>
+            </div>
+            <nav class="pb-3 pt-3">
+                <ul class="flex gap-4 items-end">
+                    <li><a href="#image" class="product-asset-link text-neutral-600 font-medium relative active-product-assets" href="#">Images</a></li>
+                    <li><a href="#color" class="product-asset-link text-neutral-600 font-medium relative" href="#">Color</a></li>
+                    <li><a href="#screenshot" class="product-asset-link text-neutral-600 font-medium relative" href="#">UI Screenshots</a></li>
+                    <li><a href="#view" class="product-asset-link text-neutral-600 font-medium relative" href="#">360° View</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="default-container py-8 flex flex-col gap-5 px-1">
+        <div id="image">
+            <div class="text-neutral-800 mb-2 font-medium px-2">Images</div>
+            <div class="bg-white border grid grid-cols-8">
+                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
+                    <img id="productImageFluid" class="h-full" src="./assets/image/mobile-image-1.png" alt="product-image">
+                </div>
+                <div class="col-span-8 md:col-span-3">
+                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
+                        <button class="subImage border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-1.png" alt="">
+                        </button>
+                        <button class="subImage flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-2.png" alt=""></button>
+                        <button class="subImage flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-3.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="color">
+            <div class="text-neutral-800 mb-2 font-medium px-2">Colors</div>
+            <div class="bg-white border grid grid-cols-8">
+                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
+                    <img id="productColorFluid" class="h-full" src="./assets/image/mobile-color-1.png" alt="product-image">
+                </div>
+                <div class="col-span-8 md:col-span-3">
+                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
+                        <button class="subColor border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-1.png" alt="">
+                        </button>
+                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-2.png" alt="">
+                        </button>
+                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-3.png" alt="">
+                        </button>
+                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-4.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="screenshot">
+            <div class="text-neutral-800 mb-2 font-medium px-2">Screenshots</div>
+            <div class="bg-white border grid grid-cols-8">
+                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
+                    <img id="productScreenshotFluid" class="h-full" src="./assets/image/mobile-screenshot-1.png" alt="product-image">
+                </div>
+                <div class="col-span-8 md:col-span-3">
+                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
+                        <button class="subScreenshot border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-1.png" alt="">
+                        </button>
+                        <button class="subScreenshot flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-2.png" alt="">
+                        </button>
+                        <button class="subScreenshot flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-3.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- share modal -->
+<div class="fixed share-modal left-[50%] top-[50%] rounded grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg duration-200 sm:rounded-lg sm:max-w-md">
+    <div class="flex flex-col space-y-1.5 text-center sm:text-left">
+        <h2 class="text-lg font-semibold leading-none tracking-tight">Share</h2>
+    </div>
+    <div class="flex justify-around items-end p-4">
+        <a target="_blank"  class="flex flex-col items-center" href="#">
+            <img alt="WhatsApp" src="./assets/image/whatsapp (1).png" width="40" height="40"  class="size-8" style="color: transparent;">
+            <span class="text-xs mt-1">WhatsApp</span>
+        </a>
+        <a target="_blank"  class="flex flex-col items-center" href="#">
+            <img alt="Facebook"  width="40" height="40"  class="size-8" src="./assets/image/facebook.png" style="color: transparent;">
+            <span class="text-xs mt-1">Facebook</span>
+        </a>
+        <a target="_blank" class="flex flex-col items-center" href="#">
+            <img alt="Twitter"  width="40" height="40"  class="size-8" src="./assets/image/twitter.png" style="color: transparent;">
+            <span class="text-xs mt-1">Twitter</span>
+        </a>
+        <a target="_blank"  class="flex flex-col items-center" href="#">
+            <svg class="fill-current text-gray-700 w-9" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm3.519 0L12 11.671 18.481 6H5.52zM20 7.329l-7.341 6.424a1 1 0 0 1-1.318 0L4 7.329V18h16V7.329z" fill="currentColor"></path></g></svg>
+            <span class="text-xs">Email</span></a>
+        <div class="flex flex-col items-center cursor-pointer">
+            <img alt="Copy Link"  width="40" height="40" class="size-8"  src="./assets/image/copy-svgrepo-com.svg" style="color: transparent;">
+            <p><span class="text-xs ">Copy Link</span></p>
+        </div>
+    </div>
+    <button type="button"  class="absolute closeShare right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+            <path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+</div>
+
+ <!-- javascript links -->
+ <script src="./script/image-color.js"></script>
+
+</body>
+</html>

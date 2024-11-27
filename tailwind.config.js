@@ -3,7 +3,8 @@ module.exports = {
   content: [
     './index.html',
     './product-details.html', 
-    './fotgot-password.html', 
+    './forgot-password.html', 
+    './gallery.html', 
     './src/**/*.js', 
   ],
   theme: {

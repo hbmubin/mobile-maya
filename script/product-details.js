@@ -538,27 +538,35 @@ commentPopupInput.addEventListener('focus', function () {
 
 
 
- // Share Modal
+ // Select all elements with the classes 'openShareBtn' and 'closeShare'
+const openShareBtns = document.querySelectorAll(".openShareBtn");
+const closeShareBtns = document.querySelectorAll(".closeShare");
 const shareModal = document.querySelector(".share-modal");
-const openShareBtn = document.querySelector("#openShareBtn"); 
-const closeShare = document.getElementById("closeShare");
 
+// Function to show the modal
 const showModal = () => {
-  shareModal.classList.add("show"); 
-  overlayTwo.classList.remove('hidden')
-  body.classList.add('overflow-hidden')
+  shareModal.classList.add("show");
+  overlayTwo.classList.remove("hidden");
+  body.classList.add("overflow-hidden");
 };
 
+// Function to hide the modal
 const hideModal = () => {
-  shareModal.classList.remove("show"); 
-  overlayTwo.classList.add('hidden')
-  body.classList.remove('overflow-hidden')
-
+  shareModal.classList.remove("show");
+  overlayTwo.classList.add("hidden");
+  body.classList.remove("overflow-hidden");
 };
 
-openShareBtn.addEventListener("click", showModal);
+// Attach event listeners to all 'openShareBtn' elements
+openShareBtns.forEach((btn) => {
+  btn.addEventListener("click", showModal);
+});
 
-closeShare.addEventListener("click", hideModal);
+// Attach event listeners to all 'closeShare' elements
+closeShareBtns.forEach((btn) => {
+  btn.addEventListener("click", hideModal);
+});
+
 
 
 

@@ -5,17 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
   <!-- slider css -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <!-- tailwind css -->
   <link rel="stylesheet" href="./output.css">
+  <!-- custom css -->
   <link rel="stylesheet" href="./css/style.css">
-
-
   <title>Mobile Maya</title>
 </head>
 
@@ -30,80 +25,90 @@
   <div id="overlayThree" class="bg-black hidden  bg-opacity-70 fixed w-screen h-screen z-[10000]"></div>
 
 
-  <!-- navResponsive -->
-  <div id="responsiveNav" class="fixed z-force duration-200 transition -translate-x-[2000px] opacity-0  bg-white w-9/12 h-screen">
-    <div class="px-2 sticky top-0 z-50 bg-white py-2 flex justify-between items-center shadow ">
-      <div class="flex gap-4">
-        <button id="navCloseBtn" class="">
-          <img class="" src="./assets/image/left-arrow-svgrepo-com.svg" alt="">
-        </button>
-        <a href="./index.html" class="w-32 inline-block">
-          <img class="w-full" src="https://www.mobilemaya.com/image/logo.png" alt="mobile-maya-logo" />
-        </a>
-      </div>
-      <div class="flex items-center gap-5">
-        <a href="#" class="relative">
-          <img src="./assets/image/bell-svgrepo-com.svg">
-          <span class="w-4 h-4 flex justify-center items-center rounded-full bg-red-600 absolute -top-2 -right-1 text-[0.60rem] text-white">9</span>
-        </a>
-        <a class="relative profile-icon" href="#">
-          <img src="./assets/image/profileicon.svg">
-          <div class="absolute top-[150%] left-1/2 -translate-x-1/2  flex-col hidden  card rounded profile-content">
-            <button class="loginSigUpBtn flex items-center px-6 py-3 w-full gap-2 hover:bg-white duration-100 relative bg-bgGray group">
-              <svg class="absolute fill-current text-bgGray -top-[40%] w-10 h-10 left-1/2 -translate-x-1/2 z-10 group-hover:text-white duration-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" />
-              </svg>
-              <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-              </svg>
-              <span>Login</span>
-            </button>
-            <button class="loginSigUpBtn flex items-center px-6 py-3 w-full  gap-2 hover:bg-white duration-100 bg-bgGray">
-              <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
-              </svg>
-              <span>Signup</span>
-            </button>
+    <!-- navResponsive -->
+    <div id="responsiveNav" class="fixed z-force duration-200 transition -translate-x-[2000px] opacity-0  bg-white w-9/12 h-screen">
+      <div class="px-2 sticky top-0 z-50 bg-white py-2 flex justify-between items-center shadow ">
+          <div class="flex gap-4 flex-grow">
+              <button id="navCloseBtn" class="">
+                  <img class="" src="./assets/image/left-arrow-svgrepo-com.svg" alt="">
+              </button>
+              <a href="./index.html" class="w-32 inline-block">
+                  <img class="w-full" src="https://www.mobilemaya.com/image/logo.png" alt="mobile-maya-logo" />
+              </a>
           </div>
-        </a>
+          <div class="flex items-center gap-5">
+              <a href="#" class="relative notification-btn">
+                  <img src="./assets/image/bell-svgrepo-com.svg">
+                  <span class="w-4 h-4 flex justify-center items-center rounded-full bg-red-600 absolute -top-2 -right-1 text-[0.60rem] text-white">9</span>
+                  <div class="border hidden absolute  notificationContent right-0 top-5 rounded bg-white w-40 shadow z-50 cursor-default text-sm">
+                    <div class="bg-bgGray px-2 text-sm py-1 border-b w-full">Notifications</div>
+                    <ul class="min-h-14">
+                      <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">User created succe..
+                      <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..
+                      <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..
+                      </li>
+                    </ul>
+                    <button class="text-sm py-[2px] flex justify-center bg-bgGray border-t text-amber-500 w-full">Show more</button>
+                  </div>
+              </a>
+              <a class="relative profile-icon" href="#">
+                  <img src="./assets/image/profileicon.svg">
+                  <div class="absolute top-[150%] left-1/2 -translate-x-1/2  flex-col hidden  card rounded profile-content">
+                      <button class="loginSigUpBtn flex items-center px-6 py-3 w-full gap-2 hover:bg-white duration-100 relative bg-bgGray group">
+                          <svg class="absolute fill-current text-bgGray -top-[40%] w-10 h-10 left-1/2 -translate-x-1/2 z-10 group-hover:text-white duration-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                              <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" />
+                          </svg>
+                          <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                          </svg>
+                          <span>Login</span>
+                      </button>
+                      <button class="loginSigUpBtn flex items-center px-6 py-3 w-full  gap-2 hover:bg-white duration-100 bg-bgGray">
+                          <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                              <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                          <span>Signup</span>
+                      </button>
+                  </div>
+              </a>
+          </div>
       </div>
-    </div>
-    <nav class="py-2 overflow-y-scroll h-screen">
-      <ul class="flex font-medium responsive-ul flex-col gap-2 ">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Top 10</a></li>
-        <li><a href="#">Brands</a></li>
-        <li class="relative group">
-          <a href="#" class="flex items-center gap-1">Mobile Collections
-            <span id="responsiveDropdownBtn" class="duration-200">
-              <img src="./assets/image/right-arrow-svgrepo-com.svg">
-            </span>
-          </a>
-          <ul id="responsiveDropdownUl" class="relative pl-2 bg-bgGray w-full hidden pt-1 text-sm">
-            <li><a href="#">Mobile</a></li>
-            <li><a href="#">Tablet</a></li>
-            <li><a href="#">Laptop</a></li>
+      <nav class="py-2 overflow-y-scroll h-screen">
+          <ul class="flex font-medium responsive-ul flex-col gap-2 ">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Top 10</a></li>
+              <li><a href="#">Brands</a></li>
+              <li class="relative group">
+                  <a href="#" class="flex items-center gap-1">Mobile Collections
+                      <span id="responsiveDropdownBtn" class="duration-200">
+                          <img src="./assets/image/right-arrow-svgrepo-com.svg">
+                      </span>
+                  </a>
+                  <ul id="responsiveDropdownUl" class="relative pl-2 bg-bgGray w-full hidden pt-1 text-sm">
+                      <li><a href="#">Mobile</a></li>
+                      <li><a href="#">Tablet</a></li>
+                      <li><a href="#">Laptop</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Mobiles</a></li>
+              <li><a href="#">Price List</a></li>
+              <li><a href="#">Compare</a></li>
+              <li><a href="#">Showrooms</a></li>
+              <li><a href="#">Service Centers</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">News & Tips</a></li>
+              <li><a href="#">Compare</a></li>
+              <li><a href="#">Showrooms</a></li>
+              <li><a href="#">Service Centers</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">News & Tips</a></li>
+              <li><a href="#">Compare</a></li>
+              <li><a href="#">Showrooms</a></li>
+              <li><a href="#">Service Centers</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">News & Tips</a></li>
           </ul>
-        </li>
-        <li><a href="#">Mobiles</a></li>
-        <li><a href="#">Price List</a></li>
-        <li><a href="#">Compare</a></li>
-        <li><a href="#">Showrooms</a></li>
-        <li><a href="#">Service Centers</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">News & Tips</a></li>
-        <li><a href="#">Compare</a></li>
-        <li><a href="#">Showrooms</a></li>
-        <li><a href="#">Service Centers</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">News & Tips</a></li>
-        <li><a href="#">Compare</a></li>
-        <li><a href="#">Showrooms</a></li>
-        <li><a href="#">Service Centers</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">News & Tips</a></li>
-      </ul>
-    </nav>
+      </nav>
   </div>
 
   <!-- LoginSigUp Content -->
@@ -153,7 +158,7 @@
             <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="blue" fill-rule="evenodd" clip-rule="evenodd"></path>
           </svg>
         </button>
-        <a href="./fotgot-password.html" class="flex items-center gap-1 p-3 border-t forgotLink" href="./fotgot-password.html">
+        <a href="./forgot-password.html" class="flex items-center gap-1 p-3 border-t forgotLink" href="./forgot-password.html">
           <span class="text-blueText ">Forgot Password</span>
           <svg width="10" height="10" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
             <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="blue" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -173,9 +178,19 @@
         <h3 class="font-normal text-neutral-500">
           Largest Gadget Site in Bangladesh
         </h3>
-        <a href="#" class="relative">
+        <a href="#" class="relative notification-btn">
           <img src="./assets/image/bell-svgrepo-com.svg">
           <span class="w-4 h-4 flex justify-center items-center rounded-full bg-red-600 absolute -top-2 -right-1 text-[0.60rem] text-white">9</span>
+          <div class="border hidden absolute  notificationContent right-0 top-5 rounded bg-white w-40 shadow z-50 cursor-default text-sm">
+            <div class="bg-bgGray px-2 text-sm py-1 border-b w-full">Notifications</div>
+            <ul class="min-h-14">
+              <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">User created succe..
+              <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..
+              <li class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..
+              </li>
+            </ul>
+            <button class="text-sm py-[2px] flex justify-center bg-bgGray border-t text-amber-500 w-full">Show more</button>
+          </div>
         </a>
       </div>
     </div>
