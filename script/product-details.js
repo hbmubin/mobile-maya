@@ -1,7 +1,6 @@
 //  Product Details Collapse
 const productDetailsCollapseBtn = document.getElementById("productDetailsCollapseBtn")
 const productDetailsCollapseContent = document.getElementById("productDetailsCollapseContent")
-const productDetailsCollapseShadow = document.getElementById("productDetailsCollapseShadow")
 
 let isProductDetailsCollapseBtnClick=false
 
@@ -16,7 +15,6 @@ productDetailsCollapseBtn.addEventListener("click",()=>{
     productDetailsCollapseBtn.textContent="See more",
     isProductDetailsCollapseBtnClick=false
   ]
-  console.log(isProductDetailsCollapseBtnClick)
 })
 
 
@@ -25,29 +23,22 @@ productDetailsCollapseBtn.addEventListener("click",()=>{
 
 
 
+const charts = document.querySelectorAll(".myChart"); // Select all elements with the class "myChart"
 
-    // Chart
-const ctx = document.getElementById("myChart");
+const getFontSize = () => {
+  if (currentScreenSize === "lg") {
+    return "18px";
+  } else {
+    return "14px";
+  }
+};
 
-
-
-
-const getFontSize= ()=>{
-    if(currentScreenSize=="lg"){
-        return "18px"
-    }
-    else{
-        return "14px"
-    }
-}
-const getElementWidth= (value)=>{
-    if(currentScreenSize=="sm"){
-        return value-1
-    }
-    return value
-}
-
-console.log(getFontSize())
+const getElementWidth = (value) => {
+  if (currentScreenSize === "sm") {
+    return value - 1;
+  }
+  return value;
+};
 
 const borderPlugin = {
   id: "customBorder",
@@ -57,7 +48,7 @@ const borderPlugin = {
 
     ctx.save();
     ctx.strokeStyle = "#5a5759";
-    ctx.lineWidth = getElementWidth(3)
+    ctx.lineWidth = getElementWidth(3);
     ctx.strokeRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
     ctx.restore();
   },
@@ -88,7 +79,7 @@ const customLegendPlugin = {
 
       // Draw legend text
       ctx.fillStyle = "#5a5759";
-      ctx.font = getFontSize()
+      ctx.font = getFontSize();
       ctx.textAlign = "left";
       ctx.textBaseline = "middle";
       ctx.fillText(dataset.label, itemX + 36, itemY + 10);
@@ -96,75 +87,76 @@ const customLegendPlugin = {
   },
 };
 
+const isCustomLegend = () => {
+  if (currentScreenSize === "sm") {
+    return " ";
+  } else {
+    return customLegendPlugin;
+  }
+};
 
-const isCustomLegend=()=>{
-    if(currentScreenSize=="sm"){
-        return " "
-    }
-    else{
-        return customLegendPlugin
-    }
-}
-
-
-new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan","Feb"],
-    datasets: [
-      {
-        label: "Samsung S24 Ultra - Price Trend",
-        data: [11000, 11000, 11000, 11000, 10000, 10000, 10000, 9000,9500],
-        borderColor: "#0066cc",
-        backgroundColor: "#0066cc",
-        borderWidth: getElementWidth(4),
-        pointBackgroundColor: "white",
-        pointBorderColor: "#0066cc",
-        pointBorderWidth: getElementWidth(4),
-        pointRadius: getElementWidth(5),
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: currentScreenSize=="sm",
-      },
+// Initialize charts dynamically for each element with the class "myChart"
+charts.forEach((chartElement) => {
+  new Chart(chartElement, {
+    type: "line",
+    data: {
+      labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
+      datasets: [
+        {
+          label: "Samsung S24 Ultra - Price Trend",
+          data: [11000, 11000, 11000, 11000, 10000, 10000, 10000, 9000, 9500],
+          borderColor: "#0066cc",
+          backgroundColor: "#0066cc",
+          borderWidth: getElementWidth(4),
+          pointBackgroundColor: "white",
+          pointBorderColor: "#0066cc",
+          pointBorderWidth: getElementWidth(4),
+          pointRadius: getElementWidth(5),
+        },
+      ],
     },
-    scales: {
-      x: {
-        ticks: {
-          autoSkip: false,
-          color: "#5a5759",
-          font: {
-            size: getFontSize()
-          },
-          maxRotation: 90,
-          minRotation: 90,
+    options: {
+      plugins: {
+        legend: {
+          display: currentScreenSize === "sm",
         },
       },
-      y: {
-        beginAtZero: false,
-        suggestedMin: 8000,
-        max: 12000,
-        ticks: {
-          stepSize: 1000,
-          color: "#5a5759",
-          font: {
-            size: getFontSize()
+      scales: {
+        x: {
+          ticks: {
+            autoSkip: false,
+            color: "#5a5759",
+            font: {
+              size: getFontSize(),
+            },
+            maxRotation: 90,
+            minRotation: 90,
           },
-          callback: function (value) {
-            if (value === 8000) {
-              return "";
-            }
-            return value;
+        },
+        y: {
+          beginAtZero: false,
+          suggestedMin: 8000,
+          max: 12000,
+          ticks: {
+            stepSize: 1000,
+            color: "#5a5759",
+            font: {
+              size: getFontSize(),
+            },
+            callback: function (value) {
+              if (value === 8000) {
+                return "";
+              }
+              return value;
+            },
           },
         },
       },
     },
-  },
-  plugins: [borderPlugin,isCustomLegend() ],
+    plugins: [borderPlugin, isCustomLegend()],
+  });
 });
+
 
 
 
@@ -174,35 +166,41 @@ new Chart(ctx, {
 // productDetailsCollapseBtns
 const collapsibles = document.querySelectorAll('.collapsible-content');
 const openClose = document.querySelectorAll('.open-close');
+const collapseToggle = document.querySelectorAll('.collapse-toggle');
 
 function setDefaultOpen() {
-  if (collapsibles.length > 0 && openClose.length > 0) {
     const firstCollapsible = collapsibles[0];
     const firstButton = openClose[0];
-
     firstCollapsible.style.height = `${firstCollapsible.scrollHeight}px`;
-    
     firstButton.classList.remove('plus');
     firstButton.classList.add('cross');
-  }
+
 }
 
 
+function initializeCollapsibles() {
+  collapseContents.forEach(content => {
+    content.style.height = '0px';
+    content.style.overflow = 'hidden'; 
+    content.style.transition = 'height 0.3s ease';
+  });
+}
+
+initializeCollapsibles();
 setDefaultOpen();
 
-openClose.forEach((button, index) => {
+collapseToggle.forEach((button, index) => {
   button.addEventListener('click', () => {
     const collapsible = collapsibles[index];
-
-    if (collapsible.style.height !== '0px') {
+    if (collapsible.style.height !== '0px' && collapsible.style.height !== '') {
       collapsible.style.height = '0px';
-      button.classList.remove('cross');
-      button.classList.add('plus');
+      openClose[index].classList.remove('cross');
+      openClose[index].classList.add('plus');
     } else {
       
       collapsible.style.height = `${collapsible.scrollHeight}px`;
-      button.classList.remove('plus');
-      button.classList.add('cross');
+      openClose[index].classList.remove('plus');
+      openClose[index].classList.add('cross');
     }
   });
 });
@@ -422,6 +420,55 @@ const reportSpam=()=>{
 
 
 
+ // PriceHistory Popup
+ const priceHistoryBtn = document.getElementById('priceHistoryBtn');
+ const priceHistoryPopup = document.getElementById('priceHistoryPopup');
+ const priceHistoryClose = document.getElementById('priceHistoryClose');
+ 
+ priceHistoryBtn.addEventListener('click', () => {
+    priceHistoryPopup.classList.remove('translate-y-full', 'opacity-0');
+    priceHistoryPopup.classList.add('translate-y-0', 'opacity-1');
+    priceHistoryBtn.style.color="#6d7df3"
+   overlayTwo.classList.remove("hidden")
+   body.classList.add("overflow-hidden")
+   });
+
+ 
+   priceHistoryClose.addEventListener('click', ()=>{
+   priceHistoryPopup.classList.remove('translate-y-0', 'opacity-1');
+   priceHistoryPopup.classList.add('translate-y-full', 'opacity-0');
+   priceHistoryBtn.style.color="currentColor"
+   overlayTwo.classList.add("hidden")
+   body.classList.remove("overflow-hidden")
+ });
+
+
+
+
+ // viewPrice Popup
+ const viewPricesBtn = document.getElementById('viewPricesBtn');
+ const viewPricePopup = document.getElementById('viewPricePopup');
+ const viewPriceClose = document.getElementById('viewPriceClose');
+ 
+ viewPricesBtn.addEventListener('click', () => {
+    viewPricePopup.classList.remove('translate-y-full', 'opacity-0');
+    viewPricePopup.classList.add('translate-y-0', 'opacity-1');
+    viewPricesBtn.style.color="#6d7df3"
+   overlayTwo.classList.remove("hidden")
+   body.classList.add("overflow-hidden")
+   });
+
+ 
+   viewPriceClose.addEventListener('click', ()=>{
+   viewPricePopup.classList.remove('translate-y-0', 'opacity-1');
+   viewPricePopup.classList.add('translate-y-full', 'opacity-0');
+   viewPricesBtn.style.color="currentColor"
+   overlayTwo.classList.add("hidden")
+   body.classList.remove("overflow-hidden")
+ });
+
+
+
 
 
  // Comment Popup
@@ -538,31 +585,27 @@ commentPopupInput.addEventListener('focus', function () {
 
 
 
- // Select all elements with the classes 'openShareBtn' and 'closeShare'
+ //  'openShareBtn' and 'closeShare'
 const openShareBtns = document.querySelectorAll(".openShareBtn");
 const closeShareBtns = document.querySelectorAll(".closeShare");
 const shareModal = document.querySelector(".share-modal");
 
-// Function to show the modal
 const showModal = () => {
   shareModal.classList.add("show");
   overlayTwo.classList.remove("hidden");
   body.classList.add("overflow-hidden");
 };
 
-// Function to hide the modal
 const hideModal = () => {
   shareModal.classList.remove("show");
   overlayTwo.classList.add("hidden");
   body.classList.remove("overflow-hidden");
 };
 
-// Attach event listeners to all 'openShareBtn' elements
 openShareBtns.forEach((btn) => {
   btn.addEventListener("click", showModal);
 });
 
-// Attach event listeners to all 'closeShare' elements
 closeShareBtns.forEach((btn) => {
   btn.addEventListener("click", hideModal);
 });
@@ -613,6 +656,50 @@ wishlistBtn.addEventListener("click", ()=>{
 
 
 
+const priceAlertBtn = document.getElementById('priceAlertBtn');
+const priceAlert = document.getElementById('priceAlert');
+
+let isAlert = false;
+let alertTimeout; // Variable to store the timeout ID
+
+priceAlertBtn.addEventListener('click', () => {
+  // Clear any existing timeout
+  if (alertTimeout) {
+    clearTimeout(alertTimeout);
+  }
+
+  if (!isAlert) {
+    priceAlert.innerHTML = `
+      <span>Price Alert set successfully</span>
+    `;
+    priceAlertBtn.innerHTML = `
+      <svg class="fill-current size-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.96963 8.96965C9.26252 8.67676 9.73739 8.67676 10.0303 8.96965L12 10.9393L13.9696 8.96967C14.2625 8.67678 14.7374 8.67678 15.0303 8.96967C15.3232 9.26256 15.3232 9.73744 15.0303 10.0303L13.0606 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0303 15.0303C9.73742 15.3232 9.26254 15.3232 8.96965 15.0303C8.67676 14.7374 8.67676 14.2625 8.96965 13.9697L10.9393 12L8.96963 10.0303C8.67673 9.73742 8.67673 9.26254 8.96963 8.96965Z"></path>
+      </svg>
+      <span>Stop Price Alert</span>
+    `;
+    priceAlert.classList.remove('hidden');
+    isAlert = true;
+  } else {
+    priceAlert.innerHTML = `
+      <span>Price Alert removed successfully</span>
+    `;
+    priceAlertBtn.innerHTML = `
+      <svg class="fill-current size-4" viewBox="0 0 24 24">
+        <path d="M17 14V17H14V19H17V22H19V19H22V17H19V14M12 2A2 2 0 0 0 10 4A2 2 0 0 0 10 4.29C7.12 5.14 5 7.82 5 11V17L3 19V20H12.35A6 6 0 0 1 12 18A6 6 0 0 1 18 12A6 6 0 0 1 19 12.09V11C19 7.82 16.88 5.14 14 4.29A2 2 0 0 0 14 4A2 2 0 0 0 12 2M10 21A2 2 0 0 0 12 23A2 2 0 0 0 13.65 22.13A6 6 0 0 1 12.81 21Z"></path>
+      </svg>
+      <span>Set Price Alert</span>
+    `;
+    priceAlert.classList.remove('hidden');
+    isAlert = false;
+  }
+
+  // Set a new timeout
+  alertTimeout = setTimeout(() => {
+    priceAlert.classList.add('hidden');
+  }, 2000);
+
+});
 
 
 

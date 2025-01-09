@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- slider css -->
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <!-- tailwind css -->
   <link rel="stylesheet" href="./output.css">
   <!-- custom css -->
@@ -13,82 +15,289 @@
     <!-- Overlay Two -->
     <div id="overlayTwo" class="bg-black top-0 left-0  bg-opacity-40 fixed w-screen hidden h-screen z-[999]"></div>
 
-    <header class="bg-white pt-5 sticky -top-12">
-        <div class="default-container">
-            <div class="relative flex items-center gap-2">
-                <svg onclick="history.back()" class="absolute cursor-pointer top-1/2 -translate-y-1/2 -left-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path>
-                </svg>
-                <h2 class="text-neutral-600 font-bold text-xl">Apple iPhone 15 Pro Max</h2>
+    <header class="bg-white sticky -top-12 z-50  shadow">
+        <div class="assets-container">
+            <div class="flex items-center gap-2 py-2  sm:translate-x-0 translate-x-8 w-fit">
+                <a class="relative" href="./product-details.html">
+                    <svg class="absolute cursor-pointer top-1/2 -translate-y-1/2 sm:-left-12 -left-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path>
+                    </svg>
+                    <h2 class="text-neutral-600 font-bold text-xl font-oswald">Apple iPhone 15 Pro Max</h2>
+                </a>
                 <svg class="size-5 openShareBtn cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"></path>
                 </svg>
             </div>
-            <nav class="pb-3 pt-3">
-                <ul class="flex gap-4 items-end">
+            <nav class="py-3">
+                <ul class="flex gap-4 items-end justify-center">
                     <li><a href="#image" class="product-asset-link text-neutral-600 font-medium relative active-product-assets" href="#">Images</a></li>
                     <li><a href="#color" class="product-asset-link text-neutral-600 font-medium relative" href="#">Color</a></li>
                     <li><a href="#screenshot" class="product-asset-link text-neutral-600 font-medium relative" href="#">UI Screenshots</a></li>
-                    <li><a href="#view" class="product-asset-link text-neutral-600 font-medium relative" href="#">360° View</a></li>
+                    <li><a href="#view3d" class="product-asset-link text-neutral-600 font-medium relative" href="#">360° View</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="default-container py-8 flex flex-col gap-5 px-1">
-        <div id="image">
+    <div class="assets-container flex flex-col px-1">
+        <div id="image" class="sm:py-5 py-3">
             <div class="text-neutral-800 mb-2 font-medium px-2">Images</div>
-            <div class="bg-white border grid grid-cols-8">
-                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
-                    <img id="productImageFluid" class="h-full" src="./assets/image/mobile-image-1.png" alt="product-image">
+            <div class=" bg-white assetWidthContainers">
+                <div class="big-img relative">
+                    <span class="full-screen-close cursor-pointer hidden fixed top-3 w-full justify-center z-force"><svg class="fill-current text-gray-400 size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </span>
+                    <div class="full-screen-open absolute top-0 right-0 cursor-pointer p-2 z-10">
+                        <svg class=" fill-current text-neutral-400 size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M344 0L488 0c13.3 0 24 10.7 24 24l0 144c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512L24 512c-13.3 0-24-10.7-24-24L0 344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
+                        </svg>
+                    </div>
+                    <div class="swiper mySwiper1 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-1.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-2.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-3.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-1.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-2.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-image-3.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next navigators hidden"></div>
+                        <div class="swiper-button-prev navigators hidden"></div>
+                    </div>
                 </div>
-                <div class="col-span-8 md:col-span-3">
-                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
-                        <button class="subImage border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-1.png" alt="">
-                        </button>
-                        <button class="subImage flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-2.png" alt=""></button>
-                        <button class="subImage flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-image-3.png" alt="">
-                        </button>
+                <div class="small-img">
+                    <div thumbsSlider="" class="swiper overflow-auto mySwiperThumb1 pb-3 md:pb-0 md:pt-3 px-2 md:pl-0 md:pr-5 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-1.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-2.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-3.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-1.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-2.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-image-3.png" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="color">
+        <div id="color" class="sm:py-5 py-3">
             <div class="text-neutral-800 mb-2 font-medium px-2">Colors</div>
-            <div class="bg-white border grid grid-cols-8">
-                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
-                    <img id="productColorFluid" class="h-full" src="./assets/image/mobile-color-1.png" alt="product-image">
+            <div class=" bg-white assetWidthContainers">
+                <div class="big-img relative">
+                    <span class="full-screen-close cursor-pointer hidden fixed top-3 w-full justify-center z-force"><svg class="fill-current text-gray-400 size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </span>
+                    <div class="full-screen-open absolute top-0 right-0 cursor-pointer p-2 z-10">
+                        <svg class=" fill-current text-neutral-400 size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M344 0L488 0c13.3 0 24 10.7 24 24l0 144c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512L24 512c-13.3 0-24-10.7-24-24L0 344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
+                        </svg>
+                    </div>
+                    <div class="swiper mySwiper2 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-color-1.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-color-2.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-color-3.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-color-4.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next navigators hidden"></div>
+                        <div class="swiper-button-prev navigators hidden"></div>
+                    </div>
                 </div>
-                <div class="col-span-8 md:col-span-3">
-                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
-                        <button class="subColor border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-1.png" alt="">
-                        </button>
-                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-2.png" alt="">
-                        </button>
-                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-3.png" alt="">
-                        </button>
-                        <button class="subColor flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-color-4.png" alt="">
-                        </button>
+                <div class="small-img">
+                    <div thumbsSlider="" class="swiper overflow-auto mySwiperThumb2 pb-3 md:pb-0 md:pt-3 px-2 md:pl-0 md:pr-5 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-color-1.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-color-2.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-color-3.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-color-4.png" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="screenshot">
+        <div id="screenshot" class="sm:py-5 py-3">
             <div class="text-neutral-800 mb-2 font-medium px-2">Screenshots</div>
-            <div class="bg-white border grid grid-cols-8">
-                <div class="border col-span-8 md:col-span-5 mx-5 my-3 max-h-[65vh] sm:h-[65vh] flex justify-center py-3">
-                    <img id="productScreenshotFluid" class="h-full" src="./assets/image/mobile-screenshot-1.png" alt="product-image">
+            <div class=" bg-white assetWidthContainers">
+                <div class="big-img relative">
+                    <span class="full-screen-close cursor-pointer hidden fixed top-3 w-full justify-center z-force"><svg class="fill-current text-gray-400 size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </span>
+                    <div class="full-screen-open absolute top-0 right-0 cursor-pointer p-2 z-10">
+                        <svg class=" fill-current text-neutral-400 size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M344 0L488 0c13.3 0 24 10.7 24 24l0 144c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512L24 512c-13.3 0-24-10.7-24-24L0 344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
+                        </svg>
+                    </div>
+                    <div class="swiper mySwiper3 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-screenshot-1.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-screenshot-2.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-screenshot-3.png" />
+                            </div>
+                            <div class="swiper-slide flex justify-center py-2">
+                                <img class="h-full" src="./assets/image/mobile-screenshot-4.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next navigators hidden"></div>
+                        <div class="swiper-button-prev navigators hidden"></div>
+                    </div>
                 </div>
-                <div class="col-span-8 md:col-span-3">
-                    <div class="images-container grid grid-cols-4 my-3 mr-6 md:ml-0 ml-6 gap-2">
-                        <button class="subScreenshot border border-gray-600 flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-1.png" alt="">
-                        </button>
-                        <button class="subScreenshot flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-2.png" alt="">
-                        </button>
-                        <button class="subScreenshot flex justify-center aspect-square py-[2px]"><img class="h-full" src="./assets/image/mobile-screenshot-3.png" alt="">
-                        </button>
+                <div class="small-img">
+                    <div thumbsSlider="" class="swiper overflow-auto mySwiperThumb3 pb-3 md:pb-0 md:pt-3 px-2 md:pl-0 md:pr-5 ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-screenshot-1.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-screenshot-2.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-screenshot-3.png" />
+                            </div>
+                            <div class="swiper-slide size-14 border flex justify-center">
+                                <img class="h-full py-[2px]" src="./assets/image/mobile-screenshot-4.png" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="view3d" class="w-full sm:pt-5 pt-3 sm:mb-10 mb-5">
+            <div class="text-neutral-800 mb-2 font-medium px-2">360° View</div>
+            <div class="relative flex justify-center bg-white border">
+                <div class="absolute right-3 top-3 ">
+                    <svg id="full3dBtn" class=" fill-current text-gray-400 sm:size-10 size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M344 0L488 0c13.3 0 24 10.7 24 24l0 144c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512L24 512c-13.3 0-24-10.7-24-24L0 344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
+                    </svg>
+                </div>
+                <div id="full3d" class="">
+                    <span id="full3dClose" class="cursor-pointer absolute top-0 p-2 left-0 w-full hidden justify-center py-5 group"><svg class="fill-current text-gray-400 sm:size-8 size-7  duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </span>
+                    <iframe class="sm:size-[500px] size-[300px] iframe3d aspect-square" src="https://embed.studio.binkies3d.com/live3d/67476d6e58626c00534655bb" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="video-section" class="sm:py-5 py-3">
+            <!-- featured videos start -->
+            <div class="featured-videos" id="videos">
+                <div class="text-neutral-800 mb-2 font-medium px-2">Featured Videos</div>
+              <div class="featured-videos-body bg-neutral-700 border px-3 lg:pt-2 lg:pb-2 pt-4 pb-2">
+                <div class="grid grid-cols-6 gap-3">
+                  <div class="lg:col-span-4 col-span-6 grid items-center lg:px-3">
+                    <!-- product video specs start -->
+                    <section class="desc-box product-video-specs p-2">
+                        <div class="featured-video">
+                            <iframe class="aspect-video w-full" id="featured-video-ifr" src="https://www.youtube.com/embed/Fre99th2ao4" title="Think in a React way" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                          </div>
+                    </section>
+                    <!-- product video specs end -->
+                  </div>
+                  <div class="lg:col-span-2 col-span-6">
+                    <div class="optional-videos p-2">
+                       <div class="video flex gap-3" data-ifr-link="https://www.youtube.com/embed/hf4k4OWlBfI" title="Java Bangla Tutorials | CORE Java | Complete OOP">
+                        <div class="video-img w-60">
+                          <img src="https://i.ytimg.com/vi/hf4k4OWlBfI/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBjsLdr7AM75IPhH6R9ku5430u0rw" alt="Java Bangla Tutorial" class="img-fluid">
+                        </div>
+                        <div class="text-white text-sm">
+                          <span class="line-clamp-3">React JS Tutorial Bangla Series for Beginners | Think
+                            in a React way</span>
+                        </div>
+                      </div>
+                       <div class="video flex gap-3" data-ifr-link="https://www.youtube.com/embed/Fre99th2ao4" title="PHP Bangla Tutorial - Basic to Advanced">
+                        <div class="video-img w-60">
+                          <img src="https://i.ytimg.com/vi/Fre99th2ao4/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBIGKVWlqr_5tW2VZ4kc1F7VVr8zw" alt="PHP Bangla Tutorial" class="img-fluid">
+                        </div>
+                        <div class="text-white text-sm">
+                          <span class="line-clamp-3">React JS Tutorial Bangla Series for Beginners | Think
+                            in a React way</span>
+                        </div>
+                      </div>
+                       <div class="video flex gap-3" data-ifr-link="https://www.youtube.com/embed/hf4k4OWlBfI" title="Java Bangla Tutorials | CORE Java | Complete OOP">
+                        <div class="video-img w-60">
+                          <img src="https://i.ytimg.com/vi/hf4k4OWlBfI/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBjsLdr7AM75IPhH6R9ku5430u0rw" alt="Java Bangla Tutorial" class="img-fluid">
+                        </div>
+                        <div class="text-white text-sm">
+                          <span class="line-clamp-3">React JS Tutorial Bangla Series for Beginners | Think
+                            in a React way</span>
+                        </div>
+                      </div>
+                       <div class="video flex gap-3" data-ifr-link="https://www.youtube.com/embed/WC-g0JtEIwM" title="Node.js Tutorial Bangla | Express.js Tutorial Bangla Seried for Beginners">
+                        <div class="video-img w-60">
+                          <img src="https://i.ytimg.com/vi/WC-g0JtEIwM/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLALPlS_pJTcYE7px3Gs92s-YckDTQ" alt="Node.js Tutorial" class="img-fluid">
+                        </div>
+                        <div class="text-white text-sm">
+                          <span class="line-clamp-3">React JS Tutorial Bangla Series for Beginners | Think
+                            in a React way</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- featured videos end -->
         </div>
     </div>
+    <div class="bg-white py-5">
+        <div class="assets-container flex justify-center">
+            <ul class="asset-bottom-ul flex items-center gap-2">
+                <li><a class="xs:px-6 px-3 py-2 rounded-full xs:text-sm text-xs xs:font-semibold text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-500 duration-200 flex justify-center items-center gap-2" href="./product-details.html">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17px" height="17px" viewBox="0 0 414.34 414.34" xml:space="preserve">
+                    <g><path d="M6.076,162.616L183.835,58.601c3.795-2.222,8.485-2.241,12.304-0.057c3.815,2.187,6.17,6.246,6.174,10.644l0.036,46.966c0.213,0.052,0.38,0.094,0.495,0.126c4.441,1.239,9.163,2.603,14.854,4.294c18.457,5.483,37.417,12.593,59.668,22.374c19.31,8.487,38.2,19.442,56.149,32.559c12.826,9.373,24.895,20.182,35.867,32.126c29.857,32.497,46.216,75.647,44.881,118.391c-0.233,7.489-1.076,14.674-1.869,20.716c-0.787,6.008-5.84,10.542-11.897,10.678c-0.093,0.002-0.187,0.003-0.277,0.003c-5.939,0-11.048-4.263-12.086-10.14c-3.304-18.678-8.574-34.021-16.111-46.909c-9.42-16.104-22.223-29.625-37.021-39.103c-12.718-8.145-26.153-14.396-41.075-19.113c-17.405-5.503-36.597-8.951-58.671-10.545c-8.906-0.643-18.502-0.967-30.2-1.02c-0.354,0-1.112,0.007-2.098,0.019l-0.032,44.29c-0.004,4.372-2.332,8.413-6.113,10.608c-3.782,2.196-8.446,2.214-12.245,0.048L6.196,183.879c-3.81-2.172-6.172-6.21-6.196-10.597C-0.025,168.897,2.291,164.832,6.076,162.616z"></path></g>
+                </svg>
+                Overview</a></li>
+                <li><a class="xs:px-6 px-3 py-2 rounded-full xs:text-sm text-xs xs:font-semibold text-white bg-gray-500 duration-200" href="./gallery.html">Images</a></li>
+                <li><a class="xs:px-6 px-3 py-2 rounded-full xs:text-sm text-xs xs:font-semibold text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-500 duration-200" href="./specification.html">Specifications</a></li>
+                <li><a class="xs:px-6 px-3 py-2 rounded-full xs:text-sm text-xs xs:font-semibold text-gray-800 bg-gray-200 hover:text-white hover:bg-gray-500 duration-200" href="#">Review</a></li>
+            </ul>
+        </div>
+    </div>
+
 
 
         <!-- share modal -->
@@ -123,9 +332,12 @@
         </svg>
     </button>
 </div>
-
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  <!-- javascript links -->
  <script src="./script/image-color.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
 </body>
 </html>

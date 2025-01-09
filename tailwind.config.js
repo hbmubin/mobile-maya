@@ -1,11 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './index.html',
-    './product-details.html', 
-    './forgot-password.html', 
-    './gallery.html', 
+    // './index.html',
+    // './product-details.html', 
+    // './forgot-password.html', 
+    // './gallery.html', 
+    // './specification.html', 
+    // './compare-product.html', 
+    // './compare.html', 
+    // './price-list.html', 
+    // './top-ten.html', 
+    // './news-and-tips.html', 
+    // './reviews.html',
     './src/**/*.js', 
+    './script/*.js', 
+    './*.html', 
   ],
   theme: {
     screens: {

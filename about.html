@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+  <!-- tailwind css -->
+  <link rel="stylesheet" href="./output.css">
+  
+  <!-- custom css -->
+  <link rel="stylesheet" href="./css/style.css">
+<title>Mobile Maya</title>
+</head>
+
+<body>
+
+  <!-- Overlay One -->
+  <div id="overlay" class="bg-black   bg-opacity-40 fixed w-screen hidden duration-100 h-screen z-[99999]"></div>
+  <!-- Overlay Two -->
+  <div id="overlayTwo" class="bg-black   bg-opacity-40 fixed w-screen hidden h-screen z-[999]"></div>
+
+  <!-- Overlay Three -->
+  <div id="overlayThree" class="bg-black hidden  bg-opacity-70 fixed w-screen h-screen z-[10000]"></div>
+
+
+    <!-- navResponsive -->
+    <div id="responsiveNav" class="fixed z-force duration-200 transition -translate-x-[2000px] opacity-0  bg-white w-9/12 h-screen">
+      <div class="px-2 sticky top-0 z-50 bg-white py-2 flex justify-between items-center shadow ">
+          <div class="flex gap-4 flex-grow">
+              <button id="navCloseBtn" class="">
+                  <img class="" src="./assets/image/left-arrow-svgrepo-com.svg" alt="">
+              </button>
+              <a href="./index.html" class="w-32 inline-block">
+                  <img class="w-full" src="./assets/image/logo.png" alt="mobile-maya-logo" />
+              </a>
+          </div>
+          <div class="flex items-center gap-5">
+              <div class="relative notification-btn cursor-pointer">
+                <img src="./assets/image/bell-svgrepo-com.svg">
+                <span class="w-4 h-4 flex justify-center items-center rounded-full bg-red-600 absolute -top-2 -right-1 text-[0.60rem] text-white">9</span>
+                <div class="border hidden absolute  notificationContent right-0 top-5 rounded bg-white w-40 shadow z-50 cursor-default text-sm">
+                  <div class="bg-bgGray px-2 text-sm py-1 border-b w-full">Notifications</div>
+                  <div class="min-h-14">
+                    <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">User created succe..</a>
+                    <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..</a>
+                    <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..</a>
+                  </div>
+                  <button class="text-sm py-[2px] flex justify-center bg-bgGray border-t text-amber-500 w-full">Show more</button>
+                </div>
+              </div>
+              <a class="relative profile-icon" href="#">
+                  <img src="./assets/image/profileicon.svg">
+                  <div class="absolute top-[150%] left-1/2 -translate-x-1/2  flex-col hidden  card rounded profile-content">
+                      <button class="loginSigUpBtn flex items-center px-6 py-3 w-full gap-2 hover:bg-white duration-100 relative bg-bgGray group">
+                          <svg class="absolute fill-current text-bgGray -top-[40%] w-10 h-10 left-1/2 -translate-x-1/2 z-10 group-hover:text-white duration-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                              <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" />
+                          </svg>
+                          <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                          </svg>
+                          <span>Login</span>
+                      </button>
+                      <button class="loginSigUpBtn flex items-center px-6 py-3 w-full  gap-2 hover:bg-white duration-100 bg-bgGray">
+                          <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                              <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                          <span>Signup</span>
+                      </button>
+                  </div>
+              </a>
+          </div>
+      </div>
+      <nav class="py-2 overflow-y-scroll h-screen">
+          <ul class="flex font-medium responsive-ul flex-col gap-2 ">
+              <li><a href="/">Home</a></li>
+              <li><a href="./top-ten.html">Top 10</a></li>
+              <li><a href="./brands.html">Brands</a></li>
+              <li class="relative group">
+                  <div class="flex items-center gap-1">Mobile Collections
+                      <span id="responsiveDropdownBtn" class="duration-200">
+                          <img src="./assets/image/right-arrow-svgrepo-com.svg">
+                      </span>
+                  </div>
+                  <ul id="responsiveDropdownUl" class="relative pl-2 bg-bgGray w-full hidden pt-1 text-sm">
+                      <li><a href="#">Mobile</a></li>
+                      <li><a href="#">Tablet</a></li>
+                      <li><a href="#">Laptop</a></li>
+                  </ul>
+              </li>
+              <li><a href="./mobile.html">Mobiles</a></li>
+              <li><a href="./comparison.html">Comparison</a></li>
+              <li><a href="./price-list.html">Price List</a></li>
+              <li><a href="./compare.html">Compare</a></li>
+              <li><a href="./showrooms.html">Showrooms</a></li>
+              <li><a href="./service-center.html">Service Centers</a></li>
+              <li><a href="./reviews.html">Reviews</a></li>
+              <li><a href="./news-and-tips.html">News & Tips</a></li>
+              <li><a href="./compare.html">Compare</a></li>
+              <li><a href="./showrooms.html">Showrooms</a></li>
+              <li><a href="./service-center.html">Service Centers</a></li>
+              <li><a href="./reviews.html">Reviews</a></li>
+              <li><a href="./news-and-tips.html">News & Tips</a></li>
+              <li><a href="./compare.html">Compare</a></li>
+              <li><a href="./showrooms.html">Showrooms</a></li>
+              <li><a href="./service-center.html">Service Centers</a></li>
+              <li><a href="./reviews.html">Reviews</a></li>
+              <li><a href="./news-and-tips.html">News & Tips</a></li>
+          </ul>
+      </nav>
+  </div>
+
+  <!-- LoginSigUp Content -->
+  <div id="loginSigUp" class="fixed  z-force duration-200 transition   bg-bgGray xs:w-[360px] w-4/5 h-screen overflow-auto shadow-2xl  -translate-x-[2000px] opacity-0">
+    <div class="bg-bgBlue p-3">
+      <h2 class="text-white text-2xl  font-bold loginSigUpTitle">Login</h2>
+    </div>
+    <div class="px-3">
+      <div class="py-3 pb-5 flex flex-col gap-3">
+        <a class="grid social-link rounded overflow-hidden" href="#">
+          <span class="bg-[#3b599a] p-1 inline-block w-12">
+            <img class="w-full" src="./assets/image/fb.png" alt="facebook-icon">
+          </span>
+          <div class=" bg-bgBlue flex items-center justify-center">
+            <h2 class="text-white font-bold text-lg ">Login With Facebook</h2>
+          </div>
+        </a>
+        <a class="grid social-link rounded overflow-hidden border border-blue-500" href="#">
+          <span class="bg-white p-2 inline-block w-12">
+            <img class="w-full" src="./assets/image/google.png" alt="facebook-icon">
+          </span>
+          <div class=" bg-blue-500 flex items-center justify-center">
+            <h2 class="text-white font-bold text-lg ">Login With Google</h2>
+          </div>
+        </a>
+      </div>
+      <div class="bg-white p-3 card rounded ">
+        <h2 class="font-medium mb-2 loginSigUpFormTitle">Login Using Email</h2>
+        <form class="flex flex-col gap-2 loginForm">
+          <div class="">
+            <input name="email" placeholder="Email" class="border w-full rounded p-2 bg-bgGray shadow-inner" type="text">
+          </div>
+          <div class="">
+            <input name="password" placeholder="Password" class="border w-full rounded p-2 bg-bgGray shadow-inner" type="password">
+          </div>
+          <div class="sm-input type-submit no-label">
+            <div class="">
+              <input class="uppercase font-medium bg-amber-500 text-white rounded py-2 px-4 hover:shadow-md cursor-pointer loginSigUpFormBtn" type="submit" value="Login">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="mt-3 bg-white card rounded loginSigUpLinks">
+        <button id="loginSignUpToggle" class="flex items-center gap-1 p-3" href="#">
+          <span class="text-blueText loginSignUpToggleText">Sign Up</span>
+          <svg width="10" height="10" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+            <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="blue" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <a href="./forgot-password.html" class="flex items-center gap-1 p-3 border-t forgotLink" href="./forgot-password.html">
+          <span class="text-blueText ">Forgot Password</span>
+          <svg width="10" height="10" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+            <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="blue" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- HEADER START -->
+  <header class="sticky lg:-top-8 top-0 z-50">
+    <!-- navTop -->
+    <div class="border-b-2 hidden lg:block">
+      <div class="nav-footer-container flex justify-between items-center py-1">
+        <h3 class="font-normal text-neutral-500">
+          Largest Gadget Site in Bangladesh
+        </h3>
+        <div class="relative notification-btn cursor-pointer">
+          <img src="./assets/image/bell-svgrepo-com.svg">
+          <span class="w-4 h-4 flex justify-center items-center rounded-full bg-red-600 absolute -top-2 -right-1 text-[0.60rem] text-white">9</span>
+          <div class="border hidden absolute  notificationContent right-0 top-5 rounded bg-white w-40 shadow z-50 cursor-default text-sm">
+            <div class="bg-bgGray px-2 text-sm py-1 border-b w-full">Notifications</div>
+            <div class="min-h-14">
+              <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">User created succe..</a>
+              <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..</a>
+              <a href="#" class="bg-white py-[2px] px-1 border-b text-blueText cursor-pointer">New product added..</a>
+            </div>
+            <button class="text-sm py-[2px] flex justify-center bg-bgGray border-t text-amber-500 w-full">Show more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- navMiddle -->
+    <div class="bg-white lg:border-b-0 border-b px-2 xs:px-0">
+      <div class="nav-footer-container flex justify-between items-center py-2 ">
+        <button id="navOpenBtn" class="lg:hidden block w-10 cursor-pointer">
+          <img class="w-full" src="./assets/image/navicon.svg">
+        </button>
+        <div class="flex justify-center lg:block w-full lg:w-auto">
+          <a href="/" class="lg:w-60 w-40 inline-block">
+            <img class="w-full" src="./assets/image/logo.png" alt="mobile-maya-logo" />
+          </a>
+        </div>
+        <!-- Overlay Four -->
+         <div id="overlayFour" class="bg-black hidden top-0 left-0 bg-opacity-70 fixed w-screen h-screen z-[99]"></div>
+         <div id="responsiveSearch" class="absolute lg:scale-100 scale-y-0 origin-top z-force lg:static  -bottom-[40%]  left-1/2 -translate-x-1/2 lg:translate-x-0 lg:shadow-none shadow-lg border-t-[1px] lg:border-2 border-t-[#dcdcdc] lg:border-neutral-400 flex items-center  mr-[8rem] lg:w-auto w-full bg-neutral-100 duration-100 rounded flex-shrink ">
+             <div class="flex-grow lg:w-80  bg-white rounded-l overflow-hidden">
+                 <input id="navSearchInput" class="lg:px-2 px-3 w-full  outline-none   bg-white py-1 p" type="text" placeholder="What are you looking for?" />
+             </div>
+             <div class="h-full lg:block hidden bg-neutral-300 py-1">
+                 <select class="bg-neutral-300 outline-none px-3 font-medium">
+                     <option value="0">All</option>
+                     <option value="1" selected>Mobile</option>
+                     <option value="2">Tablet</option>
+                     <option value="3">Laptop</option>
+                 </select>
+             </div>
+             <button class="rounded-r h-full w-14 bg-neutral-100 flex items-center justify-center">
+                 <span class="">
+                     <img src="./assets/image/searchicon.svg" alt="">
+                 </span>
+             </button>
+         
+             <!-- Nav Search Content -->
+             <div id="navSearchContent" class="absolute hidden top-[30px] border-t border-t-neutral-300 bg-white left-1/2 2xl:-translate-x-[50.1%] -translate-x-[49.9%] w-full lg:border-x-2 lg:border-b-2 box-content border-neutral-400  rounded-b overflow-hidden shadow-xl">
+                 <div class="bg-bgGray px-4 py-2 flex items-center gap-3">
+                     <input type="submit" class="searchTabBtn cursor-pointer active text-center w-24 h-10 rounded text-sm font-medium" value="Mobile" />
+                     <input type="submit" class="searchTabBtn cursor-pointer non-active text-center w-24 h-10 rounded text-sm font-medium" value="Tablet" />
+                     <input type="submit" class="searchTabBtn cursor-pointer non-active text-center w-24 h-10 rounded text-sm font-medium" value="Laptop" />
+                 </div>
+                 <div class="overflow-y-scroll h-[26rem] flex flex-col">
+                     <ul id="mobileContent" class="bg-white flex-grow py-1 px-1 ">
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3Z0p.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3Z0p.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3Z0p.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3Z0p.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3Z0p.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung S24 Ultra</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                     </ul>
+                     <ul id="tabletContent" class="hidden bg-white flex-grow py-1 px-1 ">
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/tablet.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung Tab A9</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/tablet.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung Tab A9</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/tablet.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung Tab A9</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/tablet.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung Tab A9</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/tablet.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">Samsung Tab A9</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                     </ul>
+                     <ul id="laptopContent" class="hidden bg-white flex-grow py-1 px-1 ">
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/laptop.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">HP Pavilion 15</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/laptop.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">HP Pavilion 15</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                         <li>
+                             <a class="flex items-center gap-4 border-b py-3 rounded duration-100 px-3 hover:bg-bgGray" href="#">
+                                 <div class="h-12">
+                                     <img class="h-full duration-100" src="./assets/image/laptop.jpg" alt="product-image">
+                                 </div>
+                                 <div>
+                                     <h3 class="text-sm text-neutral-900 font-light">HP Pavilion 15</h3>
+                                     <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+                                 </div>
+                             </a>
+                         </li>
+                     </ul>
+                     <div class="text-center p-2">
+                         <a class="py-2 text-orange-400 w-full hover:bg-orange-400 rounded hover:text-white" href="#">See all results</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        <div class="relative lg:block hidden cursor-pointer profile-icon">
+          <span>
+            <img src="./assets/image/profileicon.svg">
+          </span>
+          <div class="absolute xl:top-[150%] -top-2 xl:left-1/2 xl:-translate-x-1/2 right-10 hidden flex-col w-max  card rounded profile-content z-20">
+            <button class="loginSigUpBtn flex items-center px-6 py-3 w-full gap-2 hover:bg-white duration-100 relative bg-bgGray group">
+              <svg class="absolute fill-current text-bgGray xl:-top-[40%] top-1  w-10 h-10 xl:left-1/2 xl:-translate-x-1/2 -right-[22px] xl:rotate-0 rotate-90 z-10 group-hover:text-white duration-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" />
+              </svg>
+              <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+              </svg>
+              Login
+            </button>
+            <button class=" loginSigUpBtn flex items-center px-6 py-3 w-full  gap-2 hover:bg-white duration-100 bg-bgGray">
+              <svg class="fill-current text-bgText w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+              </svg>
+              Signup
+            </button>
+          </div>
+        </div>
+        <button id="responsiveSearchBtn" class="lg:hidden block border-[2px] px-2 py-[2px] border-neutral-600 rounded duration-200 bg-opacity-15">
+          <img class="w-6 " src="./assets/image/searchicon.svg">
+        </button>
+      </div>
+    </div>
+    <!-- navBottom -->
+    <div class="shadow-md shadow-neutral-300 hidden lg:block bg-bgGray">
+      <nav class="nav-footer-container">
+        <ul class="flex font-bold nav-ul">
+          <li><a href="/">Home</a></li>
+          <li><a href="./top-ten.html">Top 10</a></li>
+          <li><a href="./brands.html">Brands</a></li>
+          <li class="relative group">
+            <div class="flex items-center gap-1 group">Mobile Collections
+              <span>
+                <svg class="-rotate-90 fill-current text-bgText" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="14px" width="14px">
+                  <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                </svg>
+              </span>
+            </div>
+            <ul class="absolute top-full dropdown-ul left-0 bg-bgGray w-full border-t-2 shadow">
+              <li><a href="./price-list.html">Mobile</a></li>
+              <li><a href="./mobile.html">Tablet</a></li>
+              <li><a href="./mobile.html">Laptop</a></li>
+            </ul>
+          </li>
+          <li><a href="./mobile.html">Mobiles</a></li>
+          <li><a href="./comparison.html">Comparison</a></li>
+          <li><a href="./price-list.html">Price List</a></li>
+          <li><a href="./compare.html">Compare</a></li>
+          <li><a href="./showrooms.html">Showrooms</a></li>
+          <li><a href="./service-center.html">Service Centers</a></li>
+          <li><a href="./reviews.html">Reviews</a></li>
+          <li><a href="./news-and-tips.html">News & Tips</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- HEADER END -->
+  <main  id="main">
+    <div class="default-container">
+        <!-- BREADCRUMB START -->
+        <section class="breadcrumb card bg-white my-3 px-4 py-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <nav>
+              <ul class="flex gap-2 xs:text-base text-sm">
+                  <!-- Home -->
+                  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <a class="hover:text-neutral-800" href="./index.html" itemprop="item">
+                          <span itemprop="name">Home</span>
+                      </a>
+                      <meta itemprop="position" content="1" />
+                  </li>
+      
+                  <!-- Samsung -->
+                  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <a class="flex items-center gap-2 hover:text-neutral-800" href="#" itemprop="item">
+                          <svg class="fill-current text-neutral-400 w-3 h-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+                          </svg>
+                          <span itemprop="name">Samsung</span>
+                      </a>
+                      <meta itemprop="position" content="2" />
+                  </li>
+      
+                  <!-- Samsung Galaxy S24 Ultra -->
+                  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <a class="flex items-center gap-2 hover:text-neutral-800" href="#" itemprop="item">
+                          <svg class="fill-current text-neutral-400 w-3 h-3 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c-12.5-12.5-12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"></path>
+                          </svg>
+                          <span itemprop="name">Samsung Galaxy S24 Ultra</span>
+                      </a>
+                      <meta itemprop="position" content="3" />
+                  </li>
+              </ul>
+          </nav>
+      </section>
+        <section class="card relative bg-white w-full mb-3">
+            <div class="border-b-2 px-3 py-1">
+                <h3 class="font-oswald font-medium text-base">MobileMaya.com</h3>
+            </div>
+            <div class="sm:p-5 p-3">
+                <div class="flex justify-center py-6"><img class="max-w-56" src="./assets/image/logo.png" alt=""></div>
+                <p>MobileMaya.com was founded in the year 2009 as a mobile phone info website in Bangladesh. The primary goal was to provide the latest price and phone releases in the Bangladeshi market. Apart from that, we also had a blog section and different filter options so that visitors could find phones with their desired features easily.</p>
+                <p class="text-lg font-bold mt-3">Vision and Goals</p>
+                <p>We aim to be the number one mobile phone info site in Bangladesh where mobile phone users, fans, enthusiasts and consumers can get the latest accurate information about the market. This includes prices, technical specifications, ratings, reviews, comparisons, browsing phones by different brands, price range, types, finding mobile phone shops, read latest news from the industry and so on. We have a 100% honest information policy and we use our experience of the market and expertise in the technical details of the phones to present our website in the best possible manner.
+                    Apart from that, MobileMaya.com aims to remain a fully neutral and independent source of information. For this reason, we do not have any partnership with any brand or mobile phone shop. It helps us to always present every phone from a fair perspective, no matter which brand it is or who is its seller.</p>
+            </div>
+        </section>
+    </div>
+  </main>
+  <footer>
+    <!-- FOOTER CONTACT START -->
+    <section class="w-full bg-neutral-300 ">
+      <div class=" nav-footer-container  py-8 grid md:grid-cols-2 grid-cols-1 md:gap-0 gap-4">
+        <div class="flex  sm:gap-3 gap-1 justify-center md:justify-start">
+          <span class="w-7 inline-block">
+            <img class="w-full" src="./assets/image/envlope.svg">
+          </span>
+          <h2 class="text-lg text-white font-medium text-center">Subscribe for top stories & new lunches</h2>
+        </div>
+        <div>
+          <div class=" flex items-center gap-3 ">
+            <input type="text" class="flex-grow w-full px-5 placeholder:text-lg py-[9px] outline-none rounded-md" placeholder="Your Email Address" name="email" />
+            <input type="submit" value="Subscribe" class=" text-white bg-bgBlue px-4 py-2 text-lg rounded-md" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER CONTACT END -->
+    <!-- FOOTER NAV START -->
+    <section class="w-full bg-neutral-400 ">
+      <div class="nav-footer-container grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 text-center sm:text-start gap-10 lg:gap-0 py-10 text-lg ">
+        <nav>
+          <h2 class="font-medium text-white mb-4">Useful link</h2>
+          <ul class="  flex flex-col gap-1 text-neutral-900">
+            <li>
+              <a href="./about.html">About us</a>
+            </li>
+            <li>
+              <a href="./privacy-policy.html">Privacy policy</a>
+            </li>
+            <li>
+              <a href="#">Terms and condition</a>
+            </li>
+            <li>
+              <a href="#">DMCA</a>
+            </li>
+            <li>
+              <a href="./disclaimer.html">Disclaimer</a>
+            </li>
+            <li>
+              <a href="./faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="./contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+        <nav>
+          <h2 class="font-medium text-white mb-4">Product Categories</h2>
+          <ul class="  flex flex-col gap-1 text-neutral-900">
+            <li>
+              <a href="#">Mobile Phones</a>
+            </li>
+            <li>
+              <a href="#">Tablets</a>
+            </li>
+            <li>
+              <a href="#">Watchs</a>
+            </li>
+            <li>
+              <a href="#">Laptops</a>
+            </li>
+            <li>
+              <a href="#">Cameras</a>
+            </li>
+          </ul>
+        </nav>
+        <nav>
+          <h2 class="font-medium text-white mb-4">Download Our Apps</h2>
+          <ul class="flex flex-col gap-1 text-neutral-900">
+            <li>
+              <a class="w-40 inline-block" href="#">
+                <img class="w-full" src="./assets/image/google-play.svg" alt="">
+              </a>
+            </li>
+            <li>
+              <a class="w-40 inline-block" href="#">
+                <img class="w-full" src="./assets/image/appStore.svg" alt="">
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="flex lg:justify-end relative sm:-top-4 sm:justify-start justify-center">
+          <a href="./index.html" class="w-56 inline-block" href="#">
+            <img class="w-full" src="./assets/image/logo.png" alt="" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER NAV END -->
+    <!-- FOOTER BOTTOM START -->
+    <section class="bg-[#959595]">
+      <div class="nav-footer-container flex flex-col md:flex-row gap-3 justify-between items-center  py-3">
+        <span class="text-neutral-900 text-lg text-center">&copy; 2013-2024 MobileMaya.com | All Rights Reserved
+        </span>
+        <div class="flex gap-4">
+          <div>
+            <a class="text-xl text-white bg-neutral-900 rounded-full inline-flex h-10 w-10 justify-center items-center " href="#">
+              <svg class="fill-current text-white p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
+              </svg>
+            </a>
+          </div>
+          <div>
+            <a class="text-xl text-white bg-neutral-900 rounded-full inline-flex h-10 w-10 justify-center items-center " href="#">
+              <svg class="fill-current text-white p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z" />
+              </svg>
+            </a>
+          </div>
+          <div>
+            <a class="text-xl text-white bg-neutral-900 rounded-full inline-flex h-10 w-10 justify-center items-center " href="#">
+              <svg class="fill-current text-white p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER BOTTOM END -->
+  </footer>
+
+
+  <!-- MODALS AND POPUP -->
+
+  <!-- Compare Modal -->
+  <div id="compareModalContent" class="fixed bottom-0 left-1/2 -translate-x-1/2 z-[9999] bg-white lg:w-[800px] md:w-[710px] w-full rounded-t overflow-hidden transform transition duration-200  shadow-lg translate-y-full opacity-0">
+    <div class="bg-bgGray px-3 py-2 flex justify-between items-center">
+      <h2>1 product in your
+        <span class="text-bgBlue font-medium">compare queue</span>
+      </h2>
+      <button>
+        <button id="closeModalBtn" class="bg-bgText p-1 rounded-full hover:bg-black duration-200">
+          <img src="./assets/image/closefill.svg" alt="close">
+        </button>
+
+      </button>
+    </div>
+    <div>
+      <div class="border-collapse border-b border-b-bgGray w-full border-x-0">
+        <div id="compareModalRow" class="flex w-full">
+        </div>
+      </div>
+    </div>
+    <div class="py-2 flex justify-center items-center gap-3">
+      <a id="modalCompareNow" href="./compare-product.html" class="uppercase hidden bg-amber-600 px-5 py-3 font-bold rounded hover:shadow-lg text-white">
+        Compare Now
+      </a>
+      <button id="addToComparisonBtnBottom" class="addToComparisonBtn uppercase text-amber-600 px-4 py-2 font-bold rounded hover:shadow-md">
+        Add Product
+      </button>
+    </div>
+  </div>
+
+  <!-- Comparison Tab -->
+  <button id="comparisonTab" class="fixed openModalBtn group sm:bottom-5 sm:right-5 bottom-1 right-2 z-50 rounded-sm bg-neutral-900 hover:bg-neutral-950 sm:p-2 sm:pt-3 p-1 pt-2 items-center justify-center flex-col gap-2 hidden">
+    <span id="compareTabValue" class="absolute -top-2 -right-2 text-white bg-red-600 sm:h-6 sm:w-6 h-5 w-5 flex items-center justify-center rounded-full sm:text-base text-[10px]">1</span>
+    <svg class="fill-current text-neutral-100 group-hover:text-white sm:w-5 sm:h-5 h-4 w-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+      <path d="M93.1,325.8V139.6H46.5C20.9,139.6,0,160.5,0,186.2v279.3C0,491.1,20.9,512,46.5,512h279.3c25.7,0,46.5-20.9,46.5-46.5
+	v-46.5H186.2C134.8,418.9,93.1,377.2,93.1,325.8z M465.5,0H186.2c-25.7,0-46.5,20.9-46.5,46.5v279.3c0,25.7,20.9,46.5,46.5,46.5
+	h279.3c25.7,0,46.5-20.9,46.5-46.5V46.5C512,20.9,491.1,0,465.5,0z M442.2,209.5h-93.1v93.1h-46.5v-93.1h-93.1v-46.5h93.1V69.8h46.5
+	v93.1h93.1V209.5z"></path>
+    </svg>
+    <h3 class="text-neutral-100 sm:text-xs text-[9px] uppercase group-hover:text-white">Compare</h3>
+  </button>
+
+  <!-- Comparison Search Popup -->
+  <div id="comparisonSearchPopupContent" class="fixed z-[99999] transition duration-200 bottom-0 left-1/2  -translate-x-1/2 rounded-t overflow-hidden translate-y-full opacity-0 md:w-[620px] w-full  h-[80vh]">
+    <div class="bg-bgBlue flex gap-4 p-3 ">
+      <button class="closeComparisonPopupBtn">
+        <svg class="fill-current text-neutral-200 hover:text-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h3 class="text-white">Add Product To Comparison</h3>
+    </div>
+    <div class="bg-bgGray h-full w-full p-3 ">
+      <h2 class="pb-2 font-light text-sm">Search or select a product and it'll be added to comparison.</h2>
+      <div class="border rounded py-1 bg-white px-2 shadow-inner">
+        <input id="compareModalSearchInput" class="w-full outline-none placeholder:text-sm font-light " placeholder="Search" type="text">
+      </div>
+      <div class="p-2 overflow-y-scroll h-full">
+        <ul id="compareModalSearchContent" class=" hidden pb-28">
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-4 modalProductItem closeComparisonPopupBtn border-b py-1 group cursor-pointer">
+              <div class="h-12">
+                <img class="h-full group-hover:scale-105 duration-100" src="./assets/image/3X4v.jpg" alt="product-image">
+              </div>
+              <div>
+                <h3 class="text-sm text-neutral-900 font-light hover:text-blueText">Samsung S24 Ultra</h3>
+                <span class="text-blueText text-sm font-medium">৳1,20,000</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- javascript links -->
+  <script src="./script/index.js"></script>
+  <script src="./script/common-compare.js"></script>
+</body>
+
+</html>

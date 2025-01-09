@@ -37,6 +37,12 @@ body {
 .default-container{
   @apply container mx-auto px-[5px] lg:max-w-[1110px]
 }
+.assets-container{
+  @apply container mx-auto px-[5px] lg:max-w-[800px]
+}
+.specification-container{
+  @apply container mx-auto px-[5px] lg:max-w-[900px]
+}
 .nav-footer-container{
   @apply xl:w-[1110px] mx-auto px-[5px]
 }
@@ -53,18 +59,17 @@ input, textarea{
  
 
 
-@media (min-width: 640px) and (max-width: 767px) {
-  .cols-4-force{
-    grid-column: 4 span;
+/* @media (max-width: 767px) {
+  footer{
+    @apply text-sm
   }
 
-}
+} */
 
 
 
 
-
-.nav-ul > li a {
+.nav-ul > li>* {
   /* display: inline-block; */
   padding-left: 12px;
   padding-bottom: 10px;
@@ -73,14 +78,15 @@ input, textarea{
 .dropdown-ul > li a {
   display: inline-block;
   padding-left: 12px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   width: 100%;
-  padding-bottom: 4px;
 }
-.nav-ul > li a:hover {
+.nav-ul > li a:hover,.nav-ul > li div:hover {
   color: orange;
   transition: all ease 0.2s !important;
 }
-.nav-ul > li a:hover svg {
+.nav-ul > li *:hover svg {
   color: orange;
   transition: all ease 0.2s !important;
   transform: rotate(0);
@@ -101,7 +107,6 @@ input, textarea{
   opacity: 100;
   transition: all ease 0.2s !important;
 }
-
 
 .active{
   @apply text-white bg-orange-400
@@ -259,6 +264,9 @@ display: block;
 .product-card:hover .product-card-img::after {
   animation: fadeInOut 0.8s ease forwards;
 }
+.product-card-img:hover::after{
+  animation: fadeInOut 0.8s ease forwards;
+}
 
 
 @keyframes fadeInOut {
@@ -274,11 +282,11 @@ display: block;
 }
 
 
-.latest-review-scroll::-webkit-scrollbar, .tabLinks::-webkit-scrollbar {
+.latest-review-scroll::-webkit-scrollbar, .tabLinks::-webkit-scrollbar, .swiper::-webkit-scrollbar, .images-container::-webkit-scrollbar, .dashboard-ul::-webkit-scrollbar {
   display: none;
 }
 
-.latest-review-scroll, .tabLinks {
+.latest-review-scroll, .tabLinks .images-container .swiper .dashboard-ul{
   -ms-overflow-style: none;
   scrollbar-width: none; 
 }
@@ -291,23 +299,24 @@ display: block;
 
 
 .news-brands-ul li a {
-  width: 100%;
-  height: 50px;
+  /* width: 100%; */
+  height: 85px;
+  width: 85px;
   /* height: 100%; */
   border: 2px solid #ddd;
-  padding: 10px ;
+  padding: 5px ;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all ease .2s;
   border-radius: 5px;
+  position: relative;
 }
 .news-brands-ul li a img{
-  height: 100%;
-  /* color: white;
-  background-color: var(--teal);
-  border: 2px solid var(--teal); */
-
+  width: 100%;
+}
+.news-brands-ul li a span{
+  box-shadow: 0px -1px 1px 0px #ffffff43;
 }
 
 
@@ -316,9 +325,9 @@ display: block;
 
 
 
-.responsive-ul li > a{
+.responsive-ul li > *{
   padding-left: 0.75rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -478,9 +487,6 @@ padding: 0;
   cursor: pointer;
   @apply text-gray-400
 }
-/* .star:hover{
-  @apply text-neutral-400
-} */
  
 .one {
   color: rgb(255, 0, 0);
@@ -538,3 +544,487 @@ header, #singleProductTab {
   left: 0;
   @apply bg-red-600 rounded
   }
+
+
+
+.assetWidthContainers{
+ @apply bg-white border md:flex flex-row
+}
+ .assetWidthContainers .big-img{
+  @apply md:border md:w-[67%] mx-5 my-3 sm:h-[440px] h-72 flex justify-center py-3 max-w-full
+ }
+
+ .assetWidthContainers .small-img{
+  @apply  md:w-[33%] md:block flex justify-center overflow-hidden
+ } 
+ .assetWidthContainers .small-img .swiper-wrapper{
+  @apply md:grid grid-cols-3 gap-2 overflow-auto w-max
+   }
+
+
+
+.full-screen-view .small-img{
+  @apply flex justify-center pb-5 flex-grow items-end overflow-hidden w-screen
+    } 
+
+.full-screen-view .big-img{
+  @apply h-[70vh] flex justify-center max-w-full pt-14
+ }
+ .full-screen-view .small-img .swiper-wrapper{
+  @apply flex gap-2  w-max overflow-auto
+   } 
+
+ .full-screen-view{
+  @apply  fixed w-screen h-screen top-0 left-0 z-force bg-white flex flex-col items-center justify-between md:pb-20 pb-10
+ }
+.swiper-slide-thumb-active{
+  @apply border-2 border-neutral-600
+}
+
+
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  @apply text-neutral-500  md:text-4xl text-xl 
+}
+.swiper-button-next{
+  @apply -translate-x-5
+}
+.swiper-button-prev{
+  @apply translate-x-5
+}
+
+
+
+
+
+
+.full-3d-view{
+  @apply fixed w-screen h-screen flex justify-center items-center z-force top-0 left-0 bg-white
+}
+.full-3d-view .iframe3d{
+  height: 85vh !important;
+  width: 85vh !important;
+}
+
+
+
+
+
+.comparison-table-header #image-row td{
+  position: relative;
+}
+
+.comparison-table-header #image-row td:first-child:after, .comparison-table-header #image-row td:nth-child(2)::after{
+  display: none;
+}
+.comparison-table-header #image-row td::after{
+ content: "VS";
+ @apply absolute sm:-translate-x-3/4 -translate-x-[85%] top-1/2 -translate-y-1/2 text-neutral-500 bg-gray-200 sm:size-8 size-6 rounded-full flex justify-center items-center sm:text-sm text-xs
+}
+
+
+
+ .comparison-table-header tbody tr{
+  @apply flex w-full 
+ }
+.comparison-table-header tbody tr td:first-child{
+  font-weight: 600;
+  max-width: 16%;
+  min-width: 16% !important;
+  text-align: start !important;
+  @apply sm:block hidden bg-bgGray
+  }
+
+.comparison-table-header tbody tr td{
+  @apply  border-l flex-1
+  }
+
+  .comparison-table-header tbody tr a{
+@apply sm:text-sm text-xs text-blueText
+  }
+ .comparison-table-header  tbody tr{
+  @apply border-b text-center
+  }
+ .comparison-table-header  tbody tr td{
+  @apply py-1 px-2
+  }
+ .comparison-table-header  tbody tr:last-child{
+  @apply border-b-0
+  }
+ .comparison-table-header  tbody tr:nth-child(5), .comparison-table-header  tbody tr:nth-child(6){
+  @apply sm:flex hidden
+  }
+
+
+
+
+
+
+.comparison-table{
+@apply bg-white w-full rounded-sm
+ }
+.comparison-table tr{
+@apply flex w-full md:flex-row flex-col
+ }
+.comparison-table tr:nth-child(odd){
+@apply md:bg-bgGray
+ }
+.comparison-table tr:nth-child(even){
+@apply md:bg-white
+ }
+.comparison-table tr td:first-child{
+@apply md:w-[16%] sm:text-base text-sm w-full md:text-start text-center px-3 sm:py-2 py-[2px] font-medium md:border-b border-b bg-bgGray md:bg-inherit
+ }
+.comparison-table tr td:last-child{
+@apply flex flex-grow md:w-[84%] w-full
+ }
+ .comparison-table tr td div{
+@apply  text-neutral-500 md:text-base sm:text-sm text-xs sm:py-[5px] sm:px-[10px] py-[4px] px-1.5 border-l flex-1 md:text-start text-center flex items-center gap-1 md:justify-start justify-center break-all
+ }
+ 
+
+ .header-title-ul li{
+  @apply sm:text-lg xs:text-base text-sm text-neutral-800 font-medium relative text-center 
+ }
+ .header-title-ul li::after{
+  content: "VS";
+  @apply absolute -left-6 top-1/2 -translate-y-1/2 text-neutral-500  sm:text-xs text-[10px]
+ }
+ .header-title-ul li:first-child::after{
+  display: none;
+ }
+#headerProductImg{
+  @apply md:h-40 sm:h-28 h-20
+}
+
+ .header-info{
+  animation: compareIn 0.8s ease forwards;
+ @apply fixed -top-1 lg:max-w-[1061px] md:max-w-[720px] sm:max-w-[592px] xs:max-w-[431px] xs:w-full w-[88%]  bg-white left-1/2 -translate-x-1/2 origin-top shadow-md z-20
+ }
+.header-info  #comparison-table-header tr td:first-child{
+  @apply md:block hidden
+ }
+ .header-info  #comparison-table-header tr:nth-child(3), .header-info  #comparison-table-header tr:nth-child(4), .header-info #comparison-table-header tr:nth-child(5),.header-info  #comparison-table-header tr:nth-child(6){
+  display: none;
+ }
+ .header-info #comparison-table-header #headerProductImg{
+@apply lg:h-24 sm:h-16 h-14
+ }
+ .header-info #comparison-table-header #image-row td >div{
+@apply p-0
+ }
+
+ @keyframes compareIn {
+  0% {
+    transform: translate(-50% ,-100%);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+.padding-header{
+  @apply md:pt-[320px] sm:pt-[340px] pt-[210px]
+}
+
+.compare-top-btn-row .modalAddedProduct::after, .compare-top-btn-row >*:nth-child(2)::after{
+  content: "VS";
+  @apply absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 text-neutral-500 bg-gray-200 sm:size-8 size-6 rounded-full flex justify-center items-center sm:text-sm text-xs font-medium
+}
+.compare-top-btn-row .modalAddedProduct:first-child::after{
+ display: none;
+}
+
+.compare-top-btn-row >*{
+  @apply border-l border-y relative
+}
+.compare-top-btn-row >*:first-child{
+  border-right: none;
+}
+
+.competitors-container>div:nth-child(n+5) {
+  display: none;
+}
+.competitors-container.show-all >div {
+  display: flex;
+}
+
+.close-btn{
+  @apply sm:top-0 sm:right-1 -top-1 right-0 rounded-full bg-red-200 py-[2px] pl-[2.4px] pr-[2px] 
+}
+.compare-img-div{
+  @apply sm:h-40 h-24 flex product-card-img relative justify-center py-2 overflow-hidden w-full
+}
+
+
+.price-checkbox-container input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  width: 1.1em;
+  height: 1.1em;
+  border: 0.05em solid rgb(182, 182, 182);
+  border-radius: 50%;
+  font: inherit;
+  color: currentColor;
+  transform: translateY(-0.075em);
+  cursor: pointer;
+}
+
+.price-checkbox-container input[type="checkbox"]::before {
+  content: "";
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+}
+
+.price-checkbox-container input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+.price-checkbox-container input[type="checkbox"]:checked {
+  background-color: #4257f3;
+}
+
+.price-checkbox-container  label{
+cursor: pointer;
+}
+
+
+
+
+.list-aside>div ::-webkit-scrollbar, .viewPriceContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.list-aside>div ::-webkit-scrollbar-track, .viewPriceContent::-webkit-scrollbar-track {
+  background: #fff; 
+}
+ 
+/* Handle */
+.list-aside>div ::-webkit-scrollbar-thumb, .viewPriceContent::-webkit-scrollbar-thumb {
+  background: rgb(228, 228, 228); 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.list-aside>div ::-webkit-scrollbar-thumb:hover, .viewPriceContent::-webkit-scrollbar-thumb:hover {
+  background: #b9b9b9; 
+}
+
+
+
+
+
+/* Hide the default checkbox */
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style the label to act as the checkbox container */
+.custom-checkbox + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem; /* Add space for the custom checkbox */
+}
+
+/* Create the custom checkbox square */
+.custom-checkbox + label::before {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 0.25rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+}
+
+/* Style the checkmark */
+.custom-checkbox + label::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem; 
+  top: 0.4rem;  
+  width: 0.4rem;
+  height: 0.6rem;
+  border: solid #fff; 
+  border-width: 0 0.15rem 0.15rem 0; 
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+
+/* When the checkbox is checked */
+.custom-checkbox:checked + label::before {
+    background: #4257f3; 
+    border-color: #4257f3; 
+}
+
+.custom-checkbox:checked + label::after {
+  opacity: 1;
+}
+
+.list-footer-table tr {
+  @apply border-b
+}
+.list-footer-table tr:last-child {
+  @apply border-b-0
+}
+.list-footer-table tr td{
+  @apply py-2 font-medium
+}
+
+.pagination-container{
+  @apply gap-2
+}
+.pagination-container>li{
+  @apply bg-bgGray px-3 text-neutral-600 py-[2px] cursor-pointer hover:bg-neutral-200 rounded-sm border-transparent border-2
+}
+
+.list-pagination-active{
+  background-color: #6d7df3 !important;
+  color: white !important;
+}
+.pagination-container>li:active{
+  @apply shadow border-neutral-200
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  --d:22px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  color: var(--text-gray);
+  box-shadow: 
+    calc(1*var(--d))      calc(0*var(--d))     0 0,
+    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+    calc(0*var(--d))      calc(1*var(--d))     0 2px,
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+    calc(-1*var(--d))     calc(0*var(--d))     0 4px,
+    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+    calc(0*var(--d))      calc(-1*var(--d))    0 6px;
+  animation: l27 1s infinite steps(8);
+}
+@keyframes l27 {
+  100% {transform: rotate(1turn)}
+}
+
+.rating-bg {
+  position: relative;
+  padding:  0;
+  z-index: 1;
+  width: 50px;
+  background: #ff9800d9 !important;
+  border-radius: 0 0 25px 0;
+}
+
+.article-style{
+  @apply xs:text-base text-sm mt-3
+}
+.article-style a{
+  @apply text-blueText underline
+}
+
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @apply text-neutral-800 border rounded pl-3 py-1 outline-none
+}
+
+
+.showroom-table{
+  @apply w-full text-center border-collapse border rounded
+}
+.showroom-table td, .showroom-table th{
+  @apply border py-1.5 sm:px-2 px-1
+}
+.showroom-table th{
+  @apply font-bold text-neutral-700
+}
+.showroom-table tr td:first-child{
+  @apply font-medium bg-neutral-50
+}
+
+.showroom-table img{
+  @apply max-h-10 py-2 mx-auto
+}
+.showroom-table a{
+  @apply text-blueText
+}
+
+
+
+
+
+.service-table{
+  @apply w-full text-center border-collapse border rounded
+}
+.service-table td, .service-table th{
+  @apply border py-1.5 sm:px-2 px-1
+}
+.service-table th{
+  @apply font-bold text-neutral-700
+}
+.service-table tr td:first-child{
+  @apply font-medium bg-neutral-50 text-start
+}
+.service-table a{
+  @apply text-blueText
+}
+
+
+.dashboard-ul{
+  @apply flex w-full bg-sky-50 uppercase font-bold
+}
+.dashboard-ul li button{
+  @apply px-3 py-2.5 relative active:scale-[.995] duration-75
+}
+.dashboard-active{
+  @apply text-bgBlue after:absolute after:w-full after:h-[3px] after:bg-bgBlue after:bottom-0 after:left-0
+}
+
+
+.dashboard-content> div{
+  @apply border-b
+}
+.dashboard-content> div:last-child{
+  @apply border-b-0
+}
+
+.featured-videos .video{
+  @apply py-2 border-b
+}
+.featured-videos .video:last-child{
+  @apply border-b-0
+}
+.video{
+  @apply cursor-pointer
+}
+.video-time{
+  @apply absolute right-0 bottom-0 text-white bg-neutral-800 text-sm px-1.5 py-[2px] bg-opacity-70
+}
